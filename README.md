@@ -36,6 +36,6 @@ Answer:
 
 Given this background, now we can answer the original question.
 
-So, we have ongoing animation for a child view, and `layoutSubviews` method gets called for a parent view; in this method, child view's frame gets changed. It means that frame of a layer assiciated with the child view will be immediately set to the new value. At the same time, layer from the presentation tree has some intermidiate values (according to ongoing animation); setting new frame just changes target value for presentation tree layer, so that animation will continue from the current point to the new target.
+So, we have ongoing animation for a child view, and `layoutSubviews` method gets called for a parent view; in this method, child view's frame gets changed. It means that frame of a layer assiciated with the child view will be immediately set to the new value. At the same time, layer from the presentation tree has some intermidiate values (according to ongoing animation); setting new frame just changes target value for presentation tree layer, so that animation will continue sto the new target.
 
 That is, result of situation described in the original question is a 'jumping' animation. Please see demonstration in this GitHub sample project.
