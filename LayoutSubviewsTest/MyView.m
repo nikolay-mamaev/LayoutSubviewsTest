@@ -38,8 +38,6 @@
     NSLog(@"awakeFromNib");
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"! view.y=%3.1f", self.label.frame.origin.y);
-        NSLog(@"! layer.y=%3.1f", self.label.layer.frame.origin.y);
         [UIView animateWithDuration:5 animations:^{
             CGRect frame = self.label.frame;
             frame.origin.y = 527;
@@ -70,12 +68,10 @@
 
 - (void)timerFired:(NSTimer *)timer
 {
-//    [self setNeedsLayout];
-    NSLog(@"y=%3.1f", self.label.frame.origin.y);
-    NSLog(@"layer.y=%3.1f", self.label.layer.frame.origin.y);
-//    if (self.timerCounter++ < 6) {
+    [self setNeedsLayout];
+    if (self.timerCounter++ < 6) {
         self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(timerFired:) userInfo:nil repeats:NO];
-//    }
+    }
 }
 
 
